@@ -1,0 +1,11 @@
+<aura:component implements = "force:appHostable,flexipage:availableForAllPageTypes">
+    <aura:attribute name="account" type="Account"/>
+    <aura:registerEvent name="deleteAccount" type="c:accountEvent"/>
+     	<td>{!v.account.Name}</td>
+        <td>{!v.account.Type}</td>
+        <td>{!v.account.Owner.Id}</td>
+        <td> 
+            <lightning:buttonIcon iconName="utility:delete" alternativeText="Delete" title="Delete" onclick="{!c.doDelete}"/>
+        </td>
+  
+</aura:component>

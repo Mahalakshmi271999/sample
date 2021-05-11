@@ -1,0 +1,9 @@
+<aura:component >
+    <aura:attribute type = "Integer" name = "num1" default = "0"/>
+    <aura:attribute type = "Integer" name = "num2" default = "0"/>
+    
+    <ui:inputNumber label ="Enter first number" value = "{!v.num1}"/>
+    <ui:inputNumber label ="Enter second number" value = "{!v.num2}"/>
+    <p>Addition of two numbers = {!v.num1+v.num2} </p>
+    
+</aura:component>

@@ -1,0 +1,27 @@
+<aura:component  implements="flexipage:availableForAllPageTypes" access="global" controller="Account_Ctrl">
+    
+    <aura:attribute name = "saveBtn" type="Boolean" default = "true"/>
+    <aura:attribute name="account" type="Account" 
+      default="{
+               'SObjectType':'Account',
+               'Name':''
+               }
+               "/>
+    <lightning:input label="Account Name" value="{!v.account.Name}" onchange = "{!c.doName}"/>
+    <br/><br/>
+    <lightning:input type="number" label="Acc No" value ="{!v.account.accno__c}" onchange = "{!c.doNumber}" />
+    <br/><br/>
+    <ui:inputCheckbox aura:id="Checkbox" label="isSelect" value="{!v.account.isSelect__c}"/>
+    <br/><br/>
+    <lightning:select aura:id="type" label="Type" value="{!v.account.Type}">
+        <option value="prospect">Prospect</option>
+        <option value="pending">Pending</option>
+        <option value="installation partner">Installation Partner</option>
+        <option value="customer">Customer</option>
+        <option value="other">Other</option>
+    </lightning:select>
+    <br/><br/>
+    
+    <lightning:button label="Save" onclick="{!c.doSave}" disabled = "{!v.saveBtn}"/>
+    
+</aura:component>

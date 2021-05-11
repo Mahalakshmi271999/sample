@@ -1,0 +1,31 @@
+<aura:component controller ="displayAccount_Ctrl" >
+    <aura:attribute name = "accountLists" type = "List"/>
+    <aura:handler name = "init" value ="{!this}" action = "{!c.doInit}"/>
+    <aura:handler name="deleteAccount" event="c:accountEvent" action="{!c.handleDeleteEvent}"/>
+    <button onclick="{!c.doInit}">Reload</button>
+    <br/><br/>
+    
+    <div class="slds"> 
+
+    <table class="slds-table slds-table--bordered slds-table--striped">
+        <thead>
+            <tr>
+                <th scope="col"><span class="slds-truncate">Name</span></th>
+                <th scope="col"><span class="slds-truncate">Type</span></th>
+                <th scope="col"><span class="slds-truncate">Owner</span></th>
+                <th scope="col"><span class="slds-truncate">Action</span></th>
+            </tr>
+        </thead>
+        <br/>
+        <tbody>
+        	<aura:iteration items="{!v.accountLists}" var="account">
+                <tr>
+                    <c:accountrecords account="{!account}"/>
+                </tr>
+            </aura:iteration>
+        </tbody>
+       
+    </table>
+        </div>
+	
+</aura:component>

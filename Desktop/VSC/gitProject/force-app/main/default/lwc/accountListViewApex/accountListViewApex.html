@@ -1,0 +1,70 @@
+<template>
+  <lightning-card>
+      <template if:true = {showButton}>
+          <lightning-button label="Load Accounts" onclick={handleClick}></lightning-button>
+          <p>Click the button to display the account list</p>
+      </template>
+      <template if:true = {showTable}>
+          <div class="slds">
+              <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                  <thead>
+                      
+                      <tr class="slds-line-height_reset">
+                          <th scope="col"><span class="slds-truncate">Id</span></th>
+                          <th scope="col"><span class="slds-truncate">Name</span></th>
+                          
+                          <th scope="col"><span class="slds-truncate">LWC Date</span></th>
+                          <th scope="col"><span class="slds-truncate">Action</span></th>
+
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <template for:each ={accountLists} for:item="acc" for:index="index">
+                          <tr key ={acc.index}>
+                      <template if:true={showChild}>
+                                  <c-account-child acc={acc} key={acc.index} oneditevent={editAction} >
+                                  </c-account-child>
+                              </template>
+                              
+                          </tr>
+                      </template> 
+                      
+                  </tbody>
+              </table>
+          </div>
+          
+
+      </template>
+
+      
+      
+      <template if:true={showModal}>
+          <div class="slds-modal slds-fade-in-open slds-backdrop">  
+              <div class="slds-modal__container">  
+                
+                <div class="slds-modal__header">  
+                  <lightning-button-icon icon-name="utility:close" alternative-text="Close this window" size="large"  
+                    variant="bare-inverse" class="slds-modal__close" onclick={handleClose}>  
+                  </lightning-button-icon>  
+                  <h2>Edit Account</h2>  
+                </div>  
+                 
+                <div class="slds-modal__content slds-p-around_medium">  
+                  <lightning-input type="text" label="Id" value={eventAcc.Id}></lightning-input>
+
+                    <lightning-input type="text" label="Name" value={eventAcc.Name} onchange={handleNameChange}></lightning-input>
+                    
+                      <lightning-input type="date" label="LWC Date" value={eventAcc.LWC_Date__c}></lightning-input>                    
+                  </div>  
+                
+                <div class="slds-modal__footer">  
+                  <lightning-button icon-name="utility:save" label="Save" variant="brand" onclick={handleUpdate}>  
+                  </lightning-button>  
+                </div>  
+              </div>  
+            </div>  
+      </template>
+      
+
+  </lightning-card>
+</template>

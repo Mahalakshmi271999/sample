@@ -1,0 +1,12 @@
+.THIS table {
+    border: 1px solid black;
+    width :90%;
+}
+
+.THIS th{
+    border: 1px solid black;
+}
+
+.THIS tr:nth-child(even){
+    color:blue;
+}

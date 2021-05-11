@@ -1,0 +1,9 @@
+<template>
+        <template for:each = {accountLists} for:item="acc">
+            <tr key = {acc.accountNumber}>
+                <td>{acc.accountnumber}</td>
+                <td>{acc.name}</td>
+                <td>{acc.status}</td>
+            </tr>
+        </template>
+</template>

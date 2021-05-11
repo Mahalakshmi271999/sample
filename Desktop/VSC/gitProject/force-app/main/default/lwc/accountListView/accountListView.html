@@ -1,0 +1,35 @@
+<template>
+    <lightning-card>
+        <template if:true={showButton}>
+            <lightning-button label="Load Accounts" onclick={handleClick}></lightning-button>
+            <p>Click the button to display the account list</p>
+        </template>
+        <template if:true={showTable}>
+            <div class="slds">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        
+                        <tr class="slds-line-height_reset">
+                            <th scope="col"><span class="slds-truncate">AccountNumber</span></th>
+                            <th scope="col"><span class="slds-truncate">Name</span></th>
+                            <th scope="col"><span class="slds-truncate">Status</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={accountLists} for:item="acc" for:index="index">
+                            <tr key={acc.index}>
+                                <template if:true={showChild}>
+                                    <c-account-child acc={acc} key={acc.index} >
+                                    </c-account-child>
+                                </template>
+                            </tr>
+                        </template> 
+                        
+                    </tbody>
+                </table>
+            </div>
+
+        </template>
+
+    </lightning-card>
+</template>

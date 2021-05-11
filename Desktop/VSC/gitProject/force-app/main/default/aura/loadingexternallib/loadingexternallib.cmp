@@ -1,0 +1,10 @@
+<aura:component >
+    <ltng:require scripts="{!$Resource.moment}"/>
+    <ltng:require scripts = "{!$Resource.momentTimeZone}"/>
+   
+    <ui:inputDateTime aura:id="dateTimeField" label="dateTime" class="field" value="" displayDatePicker="true" />
+    <ui:button class="btn" label="Submit" press = "{!c.doSubmit}"/>
+    <div aura:id="msg" class="hide">
+        <ui:outputDateTime aura:id="oDateTime" value=""/>
+    </div>
+</aura:component>

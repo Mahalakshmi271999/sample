@@ -1,0 +1,3 @@
+<aura:component implements="force:appHostable" >
+    <h1>Custom Account Creation</h1>
+</aura:component>
